@@ -1,17 +1,25 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Proyecto_Tienda_Lego.Models
 {
     public class OrderDetails: BaseEntity
     {
         [Required]
-        public Orders Order { get; set; } = new Orders();
+        [ForeignKey("Order")]
+        public int OrderId { get; set; }
+        public virtual Orders Order { get; set; } = new Orders();
+
         [Required]
-        public Products Product { get; set; } = new Products();
+        [ForeignKey("Product")]
+        public int ProductId { get; set; }
+        public virtual Products Product { get; set; } = new Products();
+
         [Required]
         public float Price { get; set; }
+
         [Required]
-        public int Quantity;
+        public int Quantity { get; set; }
 
     }
 }

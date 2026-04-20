@@ -5,6 +5,6 @@ namespace Proyecto_Tienda_Lego.Models
     public class Categories: BaseEntity
     {
         [Required]
-        public string category = string.Empty;
+        public string Category { get; set; } = string.Empty;
     }
 }
